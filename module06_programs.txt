@@ -1,0 +1,100 @@
+# Problem 1
+# paste your Python code from Google Colab over the following print statement
+first_scores = []
+# loop that tests all inputs
+i = 0
+while i < 5:
+    try:
+        score = int(input("Enter a test score: "))
+        if 0 <= score <= 100:
+            first_scores.append(score)
+            i += 1
+        else:
+            print("Invalid score entered")
+    except ValueError:
+        print("Invalid score entered")
+print("All scores:",  first_scores)
+print("Students who scored below a 60 get 10 extra points.")
+second_scores = []
+for score in first_scores:
+    if score < 60:
+        second_scores.append(score + 10)
+    else:
+        second_scores.append(score)
+print("All scores:", second_scores)
+print("Students whose scores have changed:")
+for i in range(len(second_scores)):
+    if second_scores[i] != first_scores[i]:
+        print(f"Old score: {first_scores[i]} New score: {second_scores[i]}")
+
+
+# Problem 2
+# paste your Python code from Google Colab over the following print statement
+int_list = []
+# loop with input validation
+again = "y"
+while again == "y":
+    try:
+        num = int(input("Enter an integer from 1 to 10: "))
+        if 1 <= num <= 10:
+            int_list.append(num)
+            again = input("Enter another integer?[y/n] ").lower()
+            while again != "y" and again != "n":
+                print("Invalid input")
+                again = input("Enter another integer?[y/n] ").lower()
+        else:
+            print("Invalid input")
+    except ValueError:
+        print("Invalid input")
+print("Number list:", int_list)
+print("Largest element:", max(int_list))
+print("Smallest element:", min(int_list))
+total = sum(int_list)
+length = len(int_list)
+print("Sum of all elements:", total)
+print("Length of list:", length)
+print("Average:", total / length)
+int_list.reverse()
+print("List reversed:", int_list)
+int_list.insert(0, int_list[-1])
+int_list.pop()
+print("Last element moved to front:", int_list)
+
+
+# Problem 3
+# paste your Python code from Google Colab over the following print statement
+print("First sequence:")
+for i in range(5, 22, 4):
+    print(i)
+print("Second sequence:")
+for i in range(26, 4, -7):
+    print(i)
+
+
+# Problem 4
+# paste your Python code from Google Colab over the following print statement
+string = input("Enter a string: ").upper()
+print()
+frequency_dict = {}
+for char in string:
+    if "A" <= char <= "Z":
+        if char in frequency_dict:
+            frequency_dict[char] += 1
+        else:
+            frequency_dict[char] = 1
+print("Dictionary:", frequency_dict)
+letter = input("Enter a letter: ").upper()
+# input validation
+while letter <= "A" or letter >= "Z":
+    print("Invalid character entered")
+    letter = input("Enter a letter: ").upper()
+if letter in frequency_dict:
+    print("Frequency count of that letter:", frequency_dict[letter])
+    del frequency_dict[letter]
+    print("Dictionary after letter removed:", frequency_dict)
+else:
+    print("Letter not in dictionary")
+letter_list = list(frequency_dict.keys())
+letter_list.sort()
+print("Letters sorted:", letter_list)
+

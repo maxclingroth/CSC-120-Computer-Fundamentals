@@ -1,0 +1,11 @@
+Max Clingroth
+2/1/2022
+CSC 120 Lab 4 Question 6
+6A.
+Insert a colon after the range function.
+for i in range(20):
+
+6B.
+Indent the print statement.
+for i in range(20):
+    print(i)
